@@ -40,16 +40,18 @@ function addTaskToPage(tasksArray){
     for (let i = 0; i < tasksArray.length; i++) {
         let taskDiv = document.createElement("div")
         taskDiv.classList.add("task")
+        
+        // add done 
         if (tasksArray[i].done) {
             taskDiv.classList.add("done")
         }
+
         taskDiv.setAttribute("task-id",tasksArray[i].id)
         let textD =  document.createElement("div")
         textD.append(tasksArray[i].body)
         taskDiv.append(textD)
-        let dSpan = document.createElement("span")
-        dSpan.className="delete"
-        dSpan.append("delete")
+        let dSpan = document.createElement("i")
+        dSpan.classList.add("delete", "fa-solid", "fa-trash")
         taskDiv.append(dSpan)
         taskZone.appendChild(taskDiv)
     }
@@ -79,7 +81,8 @@ taskZone.addEventListener("click",(e)=>{
     }
     if (e.target.classList.contains("delete")) {
         removeTask(e.target.parentElement.getAttribute("task-id"))
-        e.target.parentElement.remove()
+        e.target.parentElement.classList.add("animate__animated", "animate__fadeOut")
+        setInterval(()=>e.target.parentElement.remove(),500)
     }
 })
 
