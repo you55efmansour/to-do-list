@@ -115,11 +115,6 @@ body {
     left: 90%;
     bottom: 90%;
   }
-  @media (max-width:500px) {
-    .night-light-label{
-      left: 80%;
-    }
-  }
   
   .night-light-label .night-light-ball {
     position: absolute;
@@ -153,4 +148,14 @@ body {
   
   .sun-svg {
     left: 5px;
+  }
+
+  @media (max-width:600px) {
+    .night-light-label{
+      left: 80%;
+    }
+    .moon-svg,
+    .sun-svg {
+      fill: black !important;
+    }
   }

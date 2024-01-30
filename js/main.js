@@ -124,10 +124,10 @@ let toggle = document.querySelector("#night-light-checkbox")
 toggle.addEventListener("click",()=>{
     if (toggle.attributes.getNamedItem("checked")) {
         toggle.attributes.removeNamedItem("checked")
-        setInterval(()=>{window.location='dark.html'},250)
+        setInterval(()=>{window.location='dark.html'},150)
     }else {
         toggle.setAttribute("checked","")
-        setInterval(()=>{window.location='light.html'},250)
+        setInterval(()=>{window.location='light.html'},150)
     }
     if (toggle.attributes.getNamedItem("checked")) {
     }

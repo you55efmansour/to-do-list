@@ -114,7 +114,7 @@ body {
     bottom: 90%;
     cursor: pointer;
   }
-  @media (max-width:500px) {
+  @media (max-width:600px) {
     .night-light-label{
       left: 80%;
     }
