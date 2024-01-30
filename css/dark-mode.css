@@ -19,17 +19,6 @@ body {
     position: relative;
     z-index: 2;
   }
-  .switch {
-    width: fit-content;
-    position: absolute;
-    left: 90%;
-    bottom: 90%;
-  }
-  @media (max-width:500px) {
-    .switch{
-      left: 75%;
-    }
-  }
   .form {
     border-radius: 6px;
     padding: 20px;
@@ -38,6 +27,8 @@ body {
   }
   .input {
     padding: 10px;
+    font-weight: 500;
+    font-size: 20px;
     border: 1px solid #ddd;
     color: white;
     background-color: transparent;
@@ -105,16 +96,7 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
+/* mode  */
   .night-light-label #night-light-checkbox {
     position: absolute;
     visibility: hidden;
@@ -131,6 +113,11 @@ body {
     left: 90%;
     bottom: 90%;
     cursor: pointer;
+  }
+  @media (max-width:500px) {
+    .night-light-label{
+      left: 80%;
+    }
   }
   
   .night-light-label .night-light-ball {
