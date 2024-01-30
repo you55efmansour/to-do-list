@@ -16,6 +16,7 @@ btn.addEventListener("click",(e)=>{
     }else{
         addTask(inputText.value)
         inputText.value= ""
+        taskZone.lastChild.classList.add("animate__animated", "animate__fadeInDown")
     }
 })
 
@@ -103,3 +104,31 @@ function removeTask(taskId){
     tasksArray = tasksArray.filter((task)=> task.id != taskId )
     addToLocal(tasksArray)
 }
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+let toggle = document.querySelector("#night-light-checkbox")
+
+toggle.addEventListener("click",()=>{
+    if (toggle.attributes.getNamedItem("checked")) {
+        toggle.attributes.removeNamedItem("checked")
+        setInterval(()=>{window.location='dark.html'},250)
+    }else {
+        toggle.setAttribute("checked","")
+        setInterval(()=>{window.location='light.html'},250)
+    }
+    if (toggle.attributes.getNamedItem("checked")) {
+    }
+})
