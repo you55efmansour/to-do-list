@@ -81,7 +81,6 @@ body {
   }
   .tasks .task.done {
     opacity: 0.5;
-    text-decoration: line-through;
   }
   .tasks .task i{
     font-weight: bold;
@@ -89,6 +88,9 @@ body {
     padding: 2px 6px;
     border-radius: 4px;
     cursor: pointer;
+  }
+  .done-text{
+    text-decoration: line-through;
   }
 
 

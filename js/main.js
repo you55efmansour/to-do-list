@@ -41,20 +41,21 @@ function addTaskToPage(tasksArray){
     for (let i = 0; i < tasksArray.length; i++) {
         let taskDiv = document.createElement("div")
         taskDiv.classList.add("task")
-        
-        // add done 
-        if (tasksArray[i].done) {
-            taskDiv.classList.add("done")
-        }
-
         taskDiv.setAttribute("task-id",tasksArray[i].id)
         let textD =  document.createElement("div")
+        textD.classList.add("my-text")
         textD.append(tasksArray[i].body)
         taskDiv.append(textD)
         let dSpan = document.createElement("i")
         dSpan.classList.add("delete", "fa-solid", "fa-trash")
         taskDiv.append(dSpan)
         taskZone.appendChild(taskDiv)
+                
+        // add done 
+        if (tasksArray[i].done) {
+            taskDiv.classList.add("done")
+            textD.classList.add("done-text")
+        }
     }
 }
 
@@ -79,6 +80,9 @@ function getTasks() {
 taskZone.addEventListener("click",(e)=>{
     if (e.target.classList.contains("task")) {
         addDone(e.target.getAttribute("task-id"))
+    }
+    if (e.target.classList.contains("my-text")) {
+        addDone(e.target.parentElement.getAttribute("task-id"))
     }
     if (e.target.classList.contains("delete")) {
         removeTask(e.target.parentElement.getAttribute("task-id"))
@@ -124,11 +128,9 @@ let toggle = document.querySelector("#night-light-checkbox")
 toggle.addEventListener("click",()=>{
     if (toggle.attributes.getNamedItem("checked")) {
         toggle.attributes.removeNamedItem("checked")
-        setInterval(()=>{window.location='dark.html'},150)
+        setInterval(()=>{window.location='index.html'},150)
     }else {
         toggle.setAttribute("checked","")
         setInterval(()=>{window.location='light.html'},150)
-    }
-    if (toggle.attributes.getNamedItem("checked")) {
     }
 })
