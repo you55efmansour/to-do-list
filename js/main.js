@@ -86,7 +86,7 @@ taskZone.addEventListener("click",(e)=>{
     }
     if (e.target.classList.contains("delete")) {
         removeTask(e.target.parentElement.getAttribute("task-id"))
-        e.target.parentElement.classList.add("animate__animated", "animate__fadeOut")
+        e.target.parentElement.classList.add("animate__animated", "animate__fadeOutUp")
         setInterval(()=>e.target.parentElement.remove(),500)
     }
 })
