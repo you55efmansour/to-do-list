@@ -1,16 +1,19 @@
-let inputText = document.querySelector(".input")
-let btn = document.querySelector(".add")
-let taskZone = document.querySelector(".tasks")
+const inputText = document.querySelector(".input")
+const form = document.querySelector(".form")
+const taskZone = document.querySelector(".tasks")
 let tasksArray=[]
 
 if (localStorage.getItem("task")) {
     tasksArray = JSON.parse(localStorage.getItem("task"));
 }
 
+
 getTasks()
 
-btn.addEventListener("click",(e)=>{
-    e.preventDefault()
+//submit the form
+
+const sub = (e)=> {
+     e.preventDefault()
     if (inputText.value == "") {
         
     }else{
@@ -18,7 +21,8 @@ btn.addEventListener("click",(e)=>{
         inputText.value= ""
         taskZone.lastChild.classList.add("animate__animated", "animate__fadeInDown")
     }
-})
+}
+form.addEventListener("submit",sub)
 
 // add task to array
 
@@ -122,15 +126,20 @@ function removeTask(taskId){
 //
 //
 
-
-let toggle = document.querySelector("#night-light-checkbox")
-
-toggle.addEventListener("click",()=>{
+const toggle = document.querySelector("#night-light-checkbox")
+const handleMode = ()=> {
+    let timer ; 
     if (toggle.attributes.getNamedItem("checked")) {
+        clearInterval(timer)
         toggle.attributes.removeNamedItem("checked")
-        setInterval(()=>{window.location='index.html'},150)
+        timer = setInterval(()=>{window.location='index.html'},150)
     }else {
+        clearInterval(timer)
         toggle.setAttribute("checked","")
-        setInterval(()=>{window.location='light.html'},150)
+        timer = setInterval(()=>{window.location='light.html'},150)
     }
-})
+
+    toggle.removeEventListener("click",handleMode)
+}
+
+toggle.addEventListener("click",handleMode)
