@@ -20,6 +20,7 @@ body {
   
   .container-md{
     position: relative;
+    min-height: 100vh;
     z-index: 2;
     padding-top: 2rem;
   }
@@ -27,7 +28,7 @@ body {
   .content-wrapper {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 4rem);
+    height: calc(100vh - 5rem);
     max-width: 800px;
     margin: 0 auto;
   }
@@ -67,8 +68,6 @@ body {
   .tasks {
     background-color: transparent;
     margin-top: 20px;
-    font-weight: 600;
-    font-size: 20px;
     border-radius: 6px;
     padding: 20px;
     flex: 1;

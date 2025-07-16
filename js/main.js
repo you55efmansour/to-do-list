@@ -132,11 +132,11 @@ const handleMode = ()=> {
     if (toggle.attributes.getNamedItem("checked")) {
         clearInterval(timer)
         toggle.attributes.removeNamedItem("checked")
-        timer = setInterval(()=>{window.location='index.html'},150)
+        timer = setInterval(()=>{window.location='/index.html'},150)
     }else {
         clearInterval(timer)
         toggle.setAttribute("checked","")
-        timer = setInterval(()=>{window.location='light.html'},150)
+        timer = setInterval(()=>{window.location='/light.html'},150)
     }
 
     toggle.removeEventListener("click",handleMode)
