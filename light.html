@@ -23,9 +23,7 @@
     />
   </head>
   <body class="body light-body">
-    <div
-      class="container-md d-flex flex-column justify-content-center vh-100 pt-4"
-    >
+    <div class="container-md d-flex flex-column">
       <!-- mode  -->
       <label for="night-light-checkbox" class="night-light-label">
         <input type="checkbox" id="night-light-checkbox" checked />
@@ -44,13 +42,15 @@
         </svg>
       </label>
       <!-- content  -->
-      <form class="form d-flex">
-        <input type="text" class="input w-75" />
-        <button type="submit" class="add btn">
-          <i class="fa-regular fa-paper-plane"></i>
-        </button>
-      </form>
-      <div class="tasks"></div>
+      <div class="content-wrapper mt-5">
+        <form class="form d-flex mt-5">
+          <input type="text" class="input w-75" />
+          <button type="submit" class="add btn">
+            <i class="fa-regular fa-paper-plane"></i>
+          </button>
+        </form>
+        <div class="tasks"></div>
+      </div>
     </div>
     <script src="./js/main.js"></script>
   </body>

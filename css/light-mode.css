@@ -6,6 +6,7 @@ body {
     background-image: url(../pics/light.jpg);
     background-size: cover;
     position: relative;
+    min-height: 100vh;
   }
   .light-body::before{
     content: "";
@@ -20,12 +21,23 @@ body {
   .container-md{
     position: relative;
     z-index: 2;
+    padding-top: 2rem;
   }
+  
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 4rem);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
   .form {
     border-radius: 6px;
     padding: 20px;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
   }
   .input {
     padding: 10px;
@@ -59,6 +71,9 @@ body {
     font-size: 20px;
     border-radius: 6px;
     padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
   }
   .tasks .task {
     background-color: #ffffffc2;
