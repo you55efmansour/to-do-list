@@ -127,49 +127,19 @@ function removeTask(taskId){
 //
 
 const toggle = document.querySelector("#night-light-checkbox")
-const body = document.body
-
-// Check if mode is saved in localStorage
-const savedMode = localStorage.getItem('darkMode')
-if (savedMode === 'true') {
-    body.classList.remove('light-body')
-    body.classList.add('dark-body')
-    toggle.removeAttribute("checked")
-    // Enable dark mode CSS, disable light mode CSS
-    document.querySelector('link[href*="dark-mode.css"]').disabled = false
-    document.querySelector('link[href*="light-mode.css"]').disabled = true
-} else if (savedMode === 'false') {
-    body.classList.remove('dark-body')
-    body.classList.add('light-body')
-    toggle.setAttribute("checked", "")
-    // Enable light mode CSS, disable dark mode CSS
-    document.querySelector('link[href*="light-mode.css"]').disabled = false
-    document.querySelector('link[href*="dark-mode.css"]').disabled = true
-}
-
 const handleMode = ()=> {
-        if (toggle.hasAttribute("checked")) {
-            // Switch to dark mode
-            toggle.removeAttribute("checked")
-            body.classList.remove('light-body')
-            body.classList.add('dark-body')
-            localStorage.setItem('darkMode', 'true')
-            
-            // Enable dark mode CSS, disable light mode CSS
-            document.querySelector('link[href*="dark-mode.css"]').disabled = false
-            document.querySelector('link[href*="light-mode.css"]').disabled = true
-        } else {
-            // Switch to light mode
-            toggle.setAttribute("checked", "")
-            body.classList.remove('dark-body')
-            body.classList.add('light-body')
-            localStorage.setItem('darkMode', 'false')
-            
-            // Enable light mode CSS, disable dark mode CSS
-            document.querySelector('link[href*="light-mode.css"]').disabled = false
-            document.querySelector('link[href*="dark-mode.css"]').disabled = true
-        }
-        
+    let timer ; 
+    if (toggle.attributes.getNamedItem("checked")) {
+        clearInterval(timer)
+        toggle.attributes.removeNamedItem("checked")
+        timer = setTimeout(()=>{window.location='index.html'},150)
+    }else {
+        clearInterval(timer)
+        toggle.setAttribute("checked","")
+        timer = setTimeout(()=>{window.location='light.html'},150)
+    }
+
+    toggle.removeEventListener("click",handleMode)
 }
 
-toggle.addEventListener("click", handleMode)
+toggle.addEventListener("click",handleMode)
